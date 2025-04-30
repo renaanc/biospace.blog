@@ -1,0 +1,48 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Biospace{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="wrapper">
+    <header class="site-header">
+      <div class="container header-content">
+        <h1 class="logo">{% trans "Biospace" %}</h1>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="/">{% trans "Home" %}</a></li>
+            <li><a href="/about">{% trans "About" %}</a></li>
+            <li><a href="/articles">{% trans "Articles" %}</a></li>
+            <li><a href="/contact">{% trans "Contact" %}</a></li>
+          </ul>
+        </nav>
+        <form action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <select name="language" onchange="this.form.submit()">
+            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>🇺🇸 EN</option>
+            <option value="pt-br" {% if LANGUAGE_CODE == 'pt-br' %}selected{% endif %}>🇧🇷 PT</option>
+          </select>
+        </form>
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>{% trans "&copy; 2025 Biospace. All rights reserved." %}</p>
+        <p>{% trans "Made with 🌌 and scientific curiosity." %}</p>
+      </div>
+    </footer>
+  </div>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

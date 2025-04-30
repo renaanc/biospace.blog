@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+{% load i18n %} 
+
+{% block title %}{% trans "Articles - Biospace" %}{% endblock %}
+
+{% block content %}
+  <h2>{% trans "Articles" %}</h2>
+  <ul>
+    {% for article in articles %}
+      <li><a href="#">{{ article.title }}</a></li>
+    {% empty %}
+      <li>{% trans "No articles available." %}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
