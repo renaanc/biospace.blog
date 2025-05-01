@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'core/home.html', {'title': title})
 
 def articles(request):
-    return render(request, 'core/articles.html')
+    return render(request, 'articles/article_list.html')
 
 # Página Sobre
 def about(request):

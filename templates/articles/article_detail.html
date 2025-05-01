@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block title %}{{ article.title }} - Biospace{% endblock %}
+
+{% block content %}
+  <h1>{{ article.title }}</h1>
+  <p><strong>{% trans "Published on" %}:</strong> {{ article.created_at|date:"d M Y" }}</p>
+  <p>{{ article.content }}</p>
+  
+  {% if article.image %}
+    <img src="{{ article.image.url }}" alt="{{ article.title }}" width="400">
+  {% endif %}
+  
+  <p><strong>{% trans "Source" %}: <a href="{{ article.source }}" target="_blank">{{ article.source }}</a></strong></p>
+{% endblock %}

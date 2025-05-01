@@ -7,6 +7,7 @@ from django.utils.text import slugify  # Para gerar slugs automaticamente
 class Article(TranslatableModel):
     created_at = models.DateTimeField(_("Criado em"), auto_now_add=True)
     slug = models.SlugField(_("Slug"), unique=True, blank=True)
+    published = models.BooleanField(_("Publicado"), default=False)
 
     translations = TranslatedFields(
         title=models.CharField(_("Título"), max_length=200),

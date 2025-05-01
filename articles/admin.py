@@ -4,9 +4,9 @@ from .models import Article, Tag
 
 @admin.register(Article)
 class ArticleAdmin(TranslatableAdmin):
-    list_display = ('title', 'created_at', 'font_size', 'slug')
-    list_filter = ('tags', 'font_size')
-    search_fields = ('title', 'content')
+    list_display = ('title', 'slug', 'published', 'created_at', 'font_size')
+    list_filter = ('published', 'tags', 'font_size')
+    search_fields = ('translations__title', 'translations__content')
     filter_horizontal = ('tags',)
 
 @admin.register(Tag)
