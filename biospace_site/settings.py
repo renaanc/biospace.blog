@@ -138,6 +138,17 @@ LANGUAGES = [
     ('pt-br', 'Português'),
 ]
 
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'pt-br'},
+    ),
+    'default': {
+        'fallbacks': ['en'],  # idioma de fallback
+        'hide_untranslated': False,  # exibir mesmo que não tenha tradução
+    }
+}
+
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]

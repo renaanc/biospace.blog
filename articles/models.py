@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
-from django.utils.text import slugify  # Para gerar slugs automaticamente
+from django.utils.text import slugify
 
 
 class Article(TranslatableModel):
@@ -26,13 +26,13 @@ class Article(TranslatableModel):
     font_size = models.CharField(_("Tamanho da fonte"), max_length=10, choices=FONT_SIZES, default='medium')
 
     def save(self, *args, **kwargs):
-        # Gerar slug baseado no título se não estiver preenchido
         if not self.slug:
+            # Gera o slug com base no título na linguagem ativa ou qualquer disponível
             self.slug = slugify(self.safe_translation_getter('title', any_language=True))
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.safe_translation_getter("title", any_language=True)
+        return self.safe_translation_getter('title', any_language=True)
 
 
 class Tag(models.Model):
