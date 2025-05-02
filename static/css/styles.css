@@ -88,7 +88,7 @@ article, aside, footer, header, nav, section {
 
 /* ==== Tipografia Base ==== */
 body {
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -294,4 +294,32 @@ main {
 .feature p {
   font-size: 1rem;
   line-height: 1.5;
+}
+.language-form {
+  margin: 0;
+}
+
+.language-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.language-btn:hover {
+  transform: scale(1.1);
+}
+
+.language-btn.active {
+  filter: brightness(1.2);
+}
+
+.flag-icon {
+  width: 21px;
+  height: auto;
+  display: inline-block;
+}
+
+.language-btn {
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 1.3rem;
 }
