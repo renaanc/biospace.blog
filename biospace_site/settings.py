@@ -103,7 +103,12 @@ WSGI_APPLICATION = 'biospace_site.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+        ssl_require=True  # 👈 Importante para Railway
+    )
 }
 
 # Password validation
@@ -125,8 +130,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LOCALE_PATHS = [    
     BASE_DIR / 'locale', 
@@ -196,5 +199,9 @@ LOGGING = {
 }
 
 CSRF_COOKIE_SECURE = True  # Se estiver usando HTTPS
-CSRF_TRUSTED_ORIGINS = ['https://biospace.up.railway.app']  # Adicione o seu domínio aqui
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',')
 
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
