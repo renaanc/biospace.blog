@@ -14,6 +14,14 @@ from pathlib import Path
 from django.conf import settings
 import os
 import dj_database_url
+from django.http import HttpResponseRedirect
+from django.utils import translation
+
+class SetLanguageMiddleware(MiddlewareMixin):
+    def process_request(self, request):
+        if request.path == "/" and not request.COOKIES.get('django_language'):
+            lang = translation.get_language_from_request(request)
+            return HttpResponseRedirect(f"/{lang}/")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,8 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']  # Isso vai lançar erro se estiver ausente
-
+SECRET_KEY = 'django-insecure-&t-%$f2h95@cijj8-1mlatl#3&rx%r1q%z3oj_4@^7=^+y#6ju'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
@@ -183,11 +190,3 @@ LOGGING = {
     },
 }
 
-CSRF_COOKIE_SECURE = True  # Se estiver usando HTTPS
-raw_origins = os.getenv('CSRF_TRUSTED_ORIGINS', '')
-CSRF_TRUSTED_ORIGINS = [o for o in raw_origins.split(',') if o]
-
-if not DEBUG:
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
