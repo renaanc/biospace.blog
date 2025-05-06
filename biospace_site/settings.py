@@ -157,6 +157,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Serve arquivos estáticos SVG corretamente
+WHITENOISE_MIMETYPES = {
+    '.svg': 'image/svg+xml',
+    # Você pode adicionar outros tipos de arquivo, se necessário
+}
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
