@@ -36,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&t-%$f2h95@cijj8-1mlatl#3&rx%r1q%z3oj_4@^7=^+y#6ju'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
@@ -192,3 +192,8 @@ LOGGING = {
         },
     },
 }
+
+CSRF_COOKIE_SECURE = True  # Se estiver usando HTTPS
+CSRF_TRUSTED_ORIGINS = ['https://biospace-production.up.railway.app']  # Adicione o seu domínio aqui
+SECURE_SSL_REDIRECT = True
+
