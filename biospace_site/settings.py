@@ -12,20 +12,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from django.conf import settings
-from django.http import HttpResponseRedirect
-from django.utils import translation
 import os
 import dj_database_url
+from biospace_site.middleware import set_language_middleware
 
 
-
-def set_language_middleware(get_response):
-    def middleware(request):
-        if request.path == "/":
-            lang = translation.get_language_from_request(request)
-            return HttpResponseRedirect(f"/{lang}/")
-        return get_response(request)
-    return middleware
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
