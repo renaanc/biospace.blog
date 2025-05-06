@@ -193,6 +193,6 @@ LOGGING = {
     },
 }
 
-
-
+CSRF_COOKIE_SECURE = True  # Se estiver usando HTTPS
+CSRF_TRUSTED_ORIGINS = ['https://biospace.up.railway.app']  # Adicione o seu domínio aqui
 
