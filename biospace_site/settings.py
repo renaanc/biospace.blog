@@ -14,14 +14,7 @@ from pathlib import Path
 from django.conf import settings
 import os
 import dj_database_url
-from django.http import HttpResponseRedirect
-from django.utils import translation
 
-class SetLanguageMiddleware(MiddlewareMixin):
-    def process_request(self, request):
-        if request.path == "/" and not request.COOKIES.get('django_language'):
-            lang = translation.get_language_from_request(request)
-            return HttpResponseRedirect(f"/{lang}/")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -62,7 +55,6 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',  # <- logo depois de SessionMiddleware
     'django.middleware.common.CommonMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'biospace_site.middleware.SetLanguageMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
