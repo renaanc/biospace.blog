@@ -40,7 +40,7 @@ SECRET_KEY = 'django-insecure-&t-%$f2h95@cijj8-1mlatl#3&rx%r1q%z3oj_4@^7=^+y#6ju
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['biospace.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
