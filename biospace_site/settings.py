@@ -15,6 +15,7 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.utils import translation
 import os
+import dj_database_url
 
 
 
@@ -38,7 +39,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&t-%$f2h95@cijj8-1mlatl#3&rx%r1q%z3oj_4@^7=^+y#6ju'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     '.railway.app',  # Permite QUALQUER domínio Railway (*.railway.app)
@@ -66,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # <- logo depois de SessionMiddleware
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'biospace_site.middleware.set_language_middleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -97,15 +99,9 @@ WSGI_APPLICATION = 'biospace_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'biospace_db',  # Nome do seu banco de dados no Render
-        'USER': 'biospace_db_user',  # Nome do usuário gerado no Render
-        'PASSWORD': 'CyH43uksZQmBg7D7yNUFmN5xGh514e1v',  # Senha gerada no Render
-        'HOST': 'dpg-d0ckflqdbo4c73ficd2g-a',  # Host do banco de dados no Render
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 # Password validation
@@ -170,6 +166,8 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
