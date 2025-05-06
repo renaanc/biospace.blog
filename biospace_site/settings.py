@@ -182,3 +182,5 @@ LOGGING = {
     },
 }
 
+CSRF_COOKIE_DOMAIN = ".railway.app"
+CSRF_TRUSTED_ORIGINS = ["https://biospace.up.railway.app"]

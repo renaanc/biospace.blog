@@ -24,24 +24,26 @@
             </ul>
           </nav>
           {% load static %}
-          <form action="{% url 'set_language' %}" method="post" class="language-form">
+          <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
-            <input type="hidden" name="language" value="en">
-            <button type="submit" class="language-btn {% if LANGUAGE_CODE == 'en' %}active{% endif %}" title="English">
-              <img src="{% static 'flags/united-states-flag-icon.svg' %}" alt="English" class="flag-icon">
+            <input name="next" type="hidden" value="{{ request.path }}">
+            <input name="language" type="hidden" value="pt-br">
+            <button type="submit" class="btn btn-link p-0 border-0 bg-transparent">
+              <img src="{% static 'icons/br-flag.svg' %}" alt="Português">
             </button>
           </form>
-          <form action="{% url 'set_language' %}" method="post" class="language-form">
+          
+          <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
-            <input type="hidden" name="language" value="pt-br">
-            <button type="submit" class="language-btn {% if LANGUAGE_CODE == 'pt-br' %}active{% endif %}" title="Português">
-              <img src="{% static 'flags/brazil-flag-icon.svg' %}" alt="Português" class="flag-icon">
+            <input name="next" type="hidden" value="{{ request.path }}">
+            <input name="language" type="hidden" value="en">
+            <button type="submit" class="btn btn-link p-0 border-0 bg-transparent">
+              <img src="{% static 'icons/en-flag.svg' %}" alt="English">
             </button>
-          </form>
+          </form>          
           <button id="theme-toggle" class="btn btn-light btn-sm">🌙</button>
         </div>
       </header>
-
       <main>
         {% block content %}{% endblock %}
       </main>
