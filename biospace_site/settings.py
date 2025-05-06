@@ -195,5 +195,5 @@ LOGGING = {
 
 CSRF_COOKIE_SECURE = True  # Se estiver usando HTTPS
 CSRF_TRUSTED_ORIGINS = ['https://biospace-production.up.railway.app']  # Adicione o seu domínio aqui
-SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
