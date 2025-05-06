@@ -96,10 +96,10 @@ WSGI_APPLICATION = 'biospace_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'biospace',         # nome do banco que você criou
-        'USER': 'postgres',      # usuário do PostgreSQL
-        'PASSWORD': 'cldia',    # senha do usuário
-        'HOST': 'localhost',
+        'NAME': 'biospace_db',  # Nome do seu banco de dados no Render
+        'USER': 'biospace_db_user',  # Nome do usuário gerado no Render
+        'PASSWORD': 'CyH43uksZQmBg7D7yNUFmN5xGh514e1v',  # Senha gerada no Render
+        'HOST': 'dpg-d0ckflqdbo4c73ficd2g-a',  # Host do banco de dados no Render
         'PORT': '5432',
     }
 }
