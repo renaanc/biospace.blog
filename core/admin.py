@@ -1,7 +1,7 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
 from .models import Artigo
-from django.utils.html import format_html
+
 
 
 # Register your models here.
@@ -9,11 +9,7 @@ from django.utils.html import format_html
 class ArtigoAdmin(TranslatableAdmin):
     list_display = ['__str__', 'publicado_em']
 
-    def thumbnail_preview(self, obj):
-        if obj.image:
-            return format_html('<img src="{}" style="height: 60px;" />', obj.image.url)
-        return "-"
-    thumbnail_preview.short_description = "Preview"
+
 
 
 
