@@ -16,6 +16,7 @@ class Article(TranslatableModel):
 
     tags = models.ManyToManyField('Tag', verbose_name=_("Tags"), blank=True)
     image = models.ImageField(_("Imagem"), upload_to='articles/', null=True, blank=True)
+    thumbnail = models.ImageField(_("Thumbnail"), upload_to='thumbnails/', null=True, blank=True)
     source = models.URLField(_("Fonte"), null=True, blank=True)
 
     FONT_SIZES = [
