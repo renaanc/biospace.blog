@@ -1,6 +1,8 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
 from .models import Artigo
+from django.utils.html import format_html
+
 
 # Register your models here.
 @admin.register(Artigo)
