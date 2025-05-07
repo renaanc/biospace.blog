@@ -28,7 +28,7 @@
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="pt-br">
-            <button type="submit" class="btn btn-link p-0 border-0 bg-transparent">
+            <button type="submit">
               <img src="flags/brazil-flag-icon.svg" alt="Português">
             </button>
           </form>
@@ -37,7 +37,7 @@
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="en">
-            <button type="submit" class="btn btn-link p-0 border-0 bg-transparent">
+            <button type="submit">
               <img src="flags/united-states-flag-icon.svg" alt="English">
             </button>
           </form>          
