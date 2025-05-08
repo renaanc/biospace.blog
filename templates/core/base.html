@@ -7,7 +7,7 @@
     <title>{% block title %}Biospace{% endblock %}</title>
     <!-- Bootstrap CSS via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=1.1" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
@@ -29,7 +29,7 @@
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="pt-br">
             <button type="submit">
-              <img src="flags/brazil-flag-icon.svg" alt="Português">
+            <img src="{% static 'flags/brazil-flag-icon.svg' %}" alt="flag" width="20" height="20">
             </button>
           </form>
           
@@ -38,7 +38,7 @@
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="en">
             <button type="submit">
-              <img src="flags/united-states-flag-icon.svg" alt="English">
+              <img src="{% static 'flags/united-states-flag-icon.svg' %}" alt="flag" width="20" height="20">
             </button>
           </form>          
           <button id="theme-toggle" class="btn btn-light btn-sm">🌙</button>

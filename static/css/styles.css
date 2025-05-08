@@ -40,7 +40,7 @@ a {
 }
 
 img, picture, video, canvas, svg {
-  display: block;
+  display: inline-block;
   max-width: 100%;
 }
 
@@ -296,7 +296,9 @@ main {
   line-height: 1.5;
 }
 .language-form {
-  margin: 0;
+  display: flex;
+  gap: 0.5rem; /* Espaço entre as bandeiras */
+  align-items: center;
 }
 
 .language-btn {
@@ -313,13 +315,31 @@ main {
   filter: brightness(1.2);
 }
 
-.flag-icon {
-  width: 21px;
-  height: auto;
-  display: inline-block;
+img.flag {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
 }
+
+
 
 .language-btn {
   font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
   font-size: 1.3rem;
+}
+
+.article-list {
+  list-style: none;
+  padding: 0;
+}
+
+.article-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.article-list img {
+  margin-right: 15px;
+  border-radius: 8px;
 }

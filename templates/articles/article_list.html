@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 {% load i18n %}
 
 {% block title %}{% trans "Articles - Biospace" %}{% endblock %}
@@ -12,10 +13,8 @@
         <div class="card h-100">
           {% if article.thumbnail %}
           <img src="{{ article.thumbnail.url }}" class="card-img-top" alt="{{ article.title }}">
-        {% elif article.image %}
+          {% elif article.image %}
           <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
-        {% else %}
-          <img src="{% static 'default-thumb.jpg' %}" class="card-img-top" alt="Default">
         {% endif %}        
           <div class="card-body">
             <h5 class="card-title">{{ article.title }}</h5>
