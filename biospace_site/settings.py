@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
     '.railway.app',  # Permite QUALQUER domínio Railway (*.railway.app)
     'localhost',     # Para desenvolvimento local
     '127.0.0.1',     # IPv4 local
+    '.onrender.com'
 ]
 
 
