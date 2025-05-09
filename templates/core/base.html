@@ -24,7 +24,7 @@
             </ul>
           </nav>
           {% load static %}
-          <form action="{% url '/i18n/setlang/' %}" method="post">
+          <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="pt-br">
@@ -33,7 +33,7 @@
             </button>
           </form>
           
-          <form action="{% url '/i18n/setlang/' %}" method="post">
+          <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="en">
