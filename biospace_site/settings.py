@@ -78,6 +78,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
+                'django.template.context_processors.csrf',
             ],
         },
     },
@@ -190,4 +191,8 @@ LOGGING = {
 }
 
 CSRF_COOKIE_DOMAIN = ".railway.app"
-CSRF_TRUSTED_ORIGINS = ["https://biospace.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = [
+    'https://biospace.up.railway.app',
+    'https://biospace.onrender.com'
+]
+SESSION_COOKIE_SECURE = True
