@@ -24,7 +24,7 @@
             </ul>
           </nav>
           {% load static %}
-          <form action="{% url 'set_language' %}" method="post">
+          <form action="{% url '/i18n/setlang/' %}" method="post">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="pt-br">
@@ -33,7 +33,7 @@
             </button>
           </form>
           
-          <form action="{% url 'set_language' %}" method="post">
+          <form action="{% url '/i18n/setlang/' %}" method="post">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="en">
@@ -59,5 +59,9 @@
     <script src="{% static 'js/main.js' %}"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <form id="csrf-init-form" method="post" action="#" style="display: none;">
+      {% csrf_token %}
+    </form>
+    
   </body>
 </html>
