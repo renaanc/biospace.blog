@@ -192,7 +192,8 @@ LOGGING = {
 
 CSRF_COOKIE_DOMAIN = ".onrender.com"
 CSRF_TRUSTED_ORIGINS = [
+    'https://biospace.onrender.com',
    # 'https://biospace.up.railway.app',
-    'https://biospace.onrender.com'
+    
 ]
 SESSION_COOKIE_SECURE = True
