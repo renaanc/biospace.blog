@@ -15,5 +15,9 @@ urlpatterns += i18n_patterns(
     path('articles/', include('articles.urls', namespace='articles')),  # Isso vai incluir as URLs da app articles
 )
 
+urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),  # Fora do i18n_patterns
+]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
