@@ -191,3 +191,4 @@ LOGGING = {
 
 CSRF_COOKIE_DOMAIN = ".onrender.com"
 CSRF_TRUSTED_ORIGINS = ['https://biospace-7kve.onrender.com']
+SESSION_COOKIE_SECURE = True  # Para garantir que o cookie de sessão seja enviado apenas via HTTPS
