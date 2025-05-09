@@ -32,10 +32,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    '.railway.app',  # Permite QUALQUER domínio Railway (*.railway.app)
+    '.onrender.com',  # Permite QUALQUER domínio render 
     'localhost',     # Para desenvolvimento local
     '127.0.0.1',     # IPv4 local
-    '.onrender.com'
 ]
 
 
@@ -191,9 +190,4 @@ LOGGING = {
 }
 
 CSRF_COOKIE_DOMAIN = ".onrender.com"
-CSRF_TRUSTED_ORIGINS = [
-    'https://biospace-7kve.onrender.com',
-   # 'https://biospace.up.railway.app',
-    
-]
-SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://biospace-7kve.onrender.com']
