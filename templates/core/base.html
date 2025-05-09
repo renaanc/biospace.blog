@@ -24,7 +24,7 @@
             </ul>
           </nav>
           {% load static %}
-          <form action="/i18n/setlang/" method="get">
+          <form action="{% url 'set_language' %}" method="get">
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="pt-br">
             <button type="submit">
@@ -32,7 +32,7 @@
             </button>
           </form>
           
-          <form action="/i18n/setlang/" method="get">
+          <form action="{% url 'set_language' %}" method="get">
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="en">
             <button type="submit">

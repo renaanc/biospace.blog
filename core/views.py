@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.utils.translation import gettext as _
 from django.utils.translation import get_language
+from django.http import HttpResponseRedirect
+from django.utils.translation import activate
+from django.conf import settings
+
 
 def home(request):
     print(f"Idioma atual: {get_language()}")  # Só para debug
@@ -21,3 +25,12 @@ def contact(request):
     title = _("Contato")  # Tradução para o título
     email = _("Entre em contato conosco através do e-mail: contato@biospace.com")
     return render(request, 'core/contact.html', {'title': title, 'email': email})
+
+def set_language(request):
+    user_language = request.GET.get('language', None)
+    if user_language:
+        activate(user_language)
+        response = HttpResponseRedirect(request.GET.get('next', '/'))
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, user_language)
+        return response
+    return HttpResponseRedirect('/')
