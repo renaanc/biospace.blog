@@ -1,6 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Biospace carregado com sucesso 🚀");
 
+
+    // CSRF token
+  const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+  if (csrfToken) {
+    console.log("CSRF token carregado:", csrfToken);
+  } else {
+    console.warn("Token CSRF não encontrado.");
+  }
+
+  // Exemplo de requisição com fetch usando o CSRF token
+function postComCsrf(url, data) {
+  return fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": csrfToken, // Envia o token CSRF no cabeçalho
+    },
+    body: JSON.stringify(data),
+  });
+}
+
   // Exemplo: efeito de scroll suave para âncoras
   const links = document.querySelectorAll('a[href^="#"]');
   links.forEach((link) => {
