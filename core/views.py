@@ -4,7 +4,13 @@ from django.utils.translation import get_language
 from django.http import HttpResponseRedirect
 from django.utils.translation import activate
 from django.conf import settings
+from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import render
 
+
+@csrf_protect
+def language_test_view(request):
+    return render(request, "csrf_test.html")
 
 def home(request):
     print(f"Idioma atual: {get_language()}")  # Só para debug
