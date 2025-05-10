@@ -4,13 +4,7 @@ from django.utils.translation import get_language
 from django.http import HttpResponseRedirect
 from django.utils.translation import activate
 from django.conf import settings
-from django.views.decorators.csrf import csrf_protect
-from django.shortcuts import render
 
-@csrf_protect
-def minha_view_com_post(request):
-    # Lógica de manipulação de dados POST aqui
-    return render(request, 'core/base.html')
 
 def home(request):
     print(f"Idioma atual: {get_language()}")  # Só para debug
