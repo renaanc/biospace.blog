@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.urls import path
+from .views import language_test_view
 
 app_name = 'core'  # Esta linha é crucial para o namespace
 
@@ -11,3 +12,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns = [
+    path("language-test/", language_test_view, name="language_test"),
+]
