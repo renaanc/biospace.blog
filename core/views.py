@@ -4,12 +4,11 @@ from django.utils.translation import get_language
 from django.http import HttpResponseRedirect
 from django.utils.translation import activate
 from django.conf import settings
-from django.views.decorators.csrf import csrf_protect
-from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
-
-@csrf_protect
+@csrf_exempt
 def language_test_view(request):
+    # Sua lógica aqui
     return render(request, "csrf_test.html")
 
 def home(request):

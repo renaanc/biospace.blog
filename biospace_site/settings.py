@@ -194,3 +194,4 @@ CSRF_COOKIE_DOMAIN = "7kve.onrender.com"
 CSRF_TRUSTED_ORIGINS = ['https://biospace-7kve.onrender.com']
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_NAME = 'csrftoken'
