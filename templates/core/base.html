@@ -24,16 +24,14 @@
             </ul>
           </nav>
           {% load static %}
-          <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
+          <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="pt-br">
             <button type="submit">
             <img src="{% static 'flags/brazil-flag-icon.svg' %}" alt="flag" width="20" height="20">
             </button>
           </form>
-          <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
+          <form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}">
             <input name="language" type="hidden" value="en">
             <button type="submit">
